@@ -3,7 +3,10 @@
 --  NPC: Gilgamesh
 -- !pos 122.452 -9.009 -12.052 252
 -----------------------------------
+local ID = require("scripts/zones/Norg/IDs");
 require("scripts/globals/missions");
+require("scripts/globals/quests");
+require("scripts/globals/keyitems");
 -----------------------------------
 
 function onTrade(player,npc,trade)
@@ -19,7 +22,6 @@ end;
 function onTrigger(player,npc)
 
     local ZilartMission = player:getCurrentMission(ZILART);
-
     if (ZilartMission == tpz.mission.id.zilart.KAZAMS_CHIEFTAINESS) then
         player:startEvent(7);
     elseif (ZilartMission == tpz.mission.id.zilart.THE_TEMPLE_OF_UGGALEPIH) then
@@ -38,6 +40,10 @@ function onTrigger(player,npc)
         player:startEvent(173);
     elseif (ZilartMission == tpz.mission.id.zilart.AWAKENING) then
         player:startEvent(177);
+    elseif (player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and player:getCharVar('ApocalypseNigh') == 6) then
+        player:startEvent(232,234,15962,15963,15964,15965,642854,4095,0)
+    else
+    	player:startEvent(233);
     end
 
 end;
@@ -49,6 +55,9 @@ end;
 -- 12 parle de kuzotz ? parle de bijoux aussi
 -- 10 parle de zitah
 function onEventUpdate(player,csid,option)
+    if ((csid == 234 ) and option == 1) then
+        player:updateEvent(15962,15963,15964,15965)
+    end
 end;
 
 function onEventFinish(player,csid,option)
@@ -56,6 +65,29 @@ function onEventFinish(player,csid,option)
     if (csid == 99) then
         player:tradeComplete();
         player:setCharVar("MissionStatus",3);
+    elseif (csid == 232 or csid == 234) then -- 
+        local reward = 0;
+        if (option == 1) then
+            reward = 15962; -- Static Earring
+        elseif (option == 2) then
+            reward = 15963; -- Magnetic Earring
+        elseif (option == 3) then
+            reward = 15964; -- Hollow Earring
+        elseif (option == 4) then
+            reward = 15965; -- Ethereal Earring
     end
 
+      if (reward ~= 0) then
+          if (player:getFreeSlotsCount() >= 1 and player:hasItem(reward) == false) then
+              player:addItem(reward);
+              player:messageSpecial(ID.text.ITEM_OBTAINED,reward)
+              player:completeQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)
+              player:addMission(COP, tpz.mission.id.cop.THE_LAST_VERSE)
+              player:addMission(ZILART,tpz.mission.id.zilart.THE_LAST_VERSE)
+          end
+              player:setCharVar("ApocalypseNigh",0)
+          else
+              player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED,reward)
+      end
+    end		
 end;
