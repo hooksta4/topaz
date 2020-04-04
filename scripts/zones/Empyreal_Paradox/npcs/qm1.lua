@@ -2,38 +2,28 @@
 -- Area: Empyreal_Paradox
 -- NPC:  QM1 
 -----------------------------------
-require("scripts/globals/missions");
-require("scripts/globals/keyitems");
-
-local Earring =
-{
-    15962, -- Static Earring
-    15963, -- Magnetic Earring
-    15964, -- Hollow Earring
-    15965  -- Ethereal Earring
-
-}
+local ID = require("scripts/zones/Empyreal_Paradox/IDs")
+require("scripts/globals/quests");
 
 function onTrade(player,npc,trade)
 end
 
 function onTrigger(player,npc)
 
-    if (player:getCurrentMission(COP) == tpz.mission.id.cop.THE_LAST_VERSE ) and player:hasItem(15962) or player:hasItem(15963) or player:hasItem(15964) or player:hasItem(15965) or player:hasItem(15966)then
-    return
+    if player:getCurrentMission(COP) == tpz.mission.id.cop.THE_LAST_VERSE and 
+    player:hasItem(15962) or
+    player:hasItem(15963) or
+    player:hasItem(15964) or
+    player:hasItem(15965) or 
+    player:hasItem(15966) then
+    player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
     else	
         player:startEvent(5)
     end
-end;
+end
 
 function onEventUpdate(player,csid,option,extras)
-    if ((csid == 5 and option == 0)) then
-    end
-
 end
------------------------------------
--- onEventFinish Action 
------------------------------------
 
 function onEventFinish(player,csid,option)
 
@@ -41,5 +31,6 @@ function onEventFinish(player,csid,option)
         player:delQuest(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED)
         player:delQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)
         player:addMission(COP, tpz.mission.id.cop.DAWN)
+        player:setCharVar('PromathiaStatus',7)
     end
-end; 
+end 

@@ -61,11 +61,13 @@ function onRegionEnter(player, region)
                     player:startEvent(142)
                 elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_ACCEPTED and player:getCharVar('StormsOfFate') == 3 then
                     player:startEvent(143)
-                elseif (player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE and (player:hasKeyItem(tpz.ki.WHISPER_OF_THE_WYRMKING))) then
+                elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE and 
+                    player:hasKeyItem(tpz.ki.WHISPER_OF_THE_WYRMKING) then
                     player:startEvent(161)
                 elseif (player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)) and (player:hasKeyItem(tpz.ki.PROMYVION_MEA_SLIVER)) and (player:hasKeyItem(tpz.ki.PROMYVION_DEM_SLIVER)) then
                     player:startEvent(162)	
-                elseif player:getCharVar("ApocalypseNigh") == 0 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE then
+                elseif player:getCharVar("ApocalypseNigh") == 0 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE and 
+                    player:getLocalVar('ANZONE') == 0 then
                     player:startEvent(123)
                 end
             end
@@ -142,7 +144,7 @@ function onEventFinish(player, csid, option)
         player:delKeyItem(tpz.ki.PROMYVION_DEM_SLIVER)
         player:delKeyItem(tpz.ki.PROMYVION_MEA_SLIVER)
         player:setCharVar('ApocalypseNigh',0)
-        player:needToZone(true)  
+        player:setLocalVar('ANZONE', 1)
     elseif (csid == 123) then
         player:addQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)    
         player:setCharVar('ApocalypseNigh',1)

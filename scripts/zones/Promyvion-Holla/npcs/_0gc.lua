@@ -2,16 +2,15 @@
 -- Area: Promyvion holla
 -- Memory Flux 4th floor
 -----------------------------------
-local ID = require("scripts/zones/Promyvion-Dem/IDs")
-require("scripts/globals/missions")
-require("scripts/globals/quests")
+local ID = require("scripts/zones/Promyvion-Holla/IDs")
+require("scripts/globals/keyitems");
 -----------------------------------
 
 function onTrigger(player, npc)
-    if (player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)) then
-        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
-    elseif
-        (player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_ACCEPTED ) then
+    if
+        player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_ACCEPTED and
+        not player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)
+    then
         player:addKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.PROMYVION_HOLLA_SLIVER)
     else

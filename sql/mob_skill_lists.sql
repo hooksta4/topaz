@@ -3461,6 +3461,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3512); -- Sonic Buffet
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3513); -- Entice
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3514); -- Hysteric Assault
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3515); -- Clarsach Call
+
 -- Trusts
 -- INSERT INTO `mob_skill_lists` VALUES ('TRUST_Shantotto',1011,0);
 -- INSERT INTO `mob_skill_lists` VALUES ('TRUST_Naji',1012,0);
@@ -3591,3 +3592,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3515); -- Clarsach Call
 -- Reserved for future Trust 6022 (ID: 1137)
 
 -- Next available ID: 1138
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,823); -- Fire Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,824); -- Frost Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,825); -- Wind Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,826); -- Earth Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,827); -- Lightning Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,828); -- Water Blade
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,829); -- Great Wheel
+INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1141,830); -- Light Blade
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,986); -- Vortex
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,985); -- Stellar Burst
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,988); -- Warp In (Works the same as Ealdnarche's)
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,989); -- Warp Out (Works the same as Ealdnarche's)
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,1006);-- Omega Javelin
+INSERT INTO `mob_skill_lists` VALUES ('EaldNarche (Apoc Nigh)',1142,1600);-- Omega Javelin
+
