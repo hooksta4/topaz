@@ -3461,7 +3461,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3512); -- Sonic Buffet
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3513); -- Entice
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3514); -- Hysteric Assault
 INSERT INTO `mob_skill_lists` VALUES ('Siren',1010,3515); -- Clarsach Call
-
 -- Trusts
 -- INSERT INTO `mob_skill_lists` VALUES ('TRUST_Shantotto',1011,0);
 -- INSERT INTO `mob_skill_lists` VALUES ('TRUST_Naji',1012,0);

@@ -19,7 +19,6 @@ function onTrade(player,npc,trade)
 end;
 
 function onTrigger(player,npc)
-    local realday = tonumber(os.date("%j")); -- %M for next minute, %j for next day
     local ZilartMission = player:getCurrentMission(ZILART);
     if (ZilartMission == tpz.mission.id.zilart.KAZAMS_CHIEFTAINESS) then
         player:startEvent(7);
@@ -40,13 +39,12 @@ function onTrigger(player,npc)
     elseif (ZilartMission == tpz.mission.id.zilart.AWAKENING) then
         player:startEvent(177);
     elseif (player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and player:getCharVar('ApocalypseNigh') == 6) 
-        and (realday ~= player:getCharVar("Apoc_Nigh_Reward")) then
-        player:startEvent(232,234,15962,15963,15964,15965,642854,4095,0)
-    else
-    	player:startEvent(233)
+        and player:getCharVar("Apoc_Nigh_Reward") <= os.time() and player:getCharVar('Apoc_Nigh_RewardCS1') == 0 then
+        player:startEvent(232, 15962, 15963, 15964, 15965,)
+    elseif player:getCharVar('Apoc_Nigh_RewardCS1') == 1 then
+        player:startEvent(234, 15962, 15963, 15964, 15965,)      
     end
-
-end;
+end
 
 --175  0  2  3  4  7  8  9  10  98  99  29  12
 --13  146  158  164  169  170  171  172  173  176  177  232  233
@@ -56,25 +54,26 @@ end;
 -- 10 parle de zitah
 function onEventUpdate(player,csid,option)
     if ((csid == 234 ) and option == 1) then
-        player:updateEvent(15962,15963,15964,15965)
+        player:updateEvent(15962, 15963, 15964, 15965)
     end
-end;
+end
 
 function onEventFinish(player,csid,option)
-    local reward = 0;
+    local reward = 0
 
     if (csid == 99) then
-        player:tradeComplete();
-        player:setCharVar("MissionStatus",3);
+        player:tradeComplete()
+        player:setCharVar("MissionStatus",3)
     elseif (csid == 232) then
+        player:setCharVar("Apoc_Nigh_RewardCS1", 1)
         if (option == 1) then
-            reward = 15962; -- Static Earring
+            reward = 15962 -- Static Earring
         elseif (option == 2) then
-            reward = 15963; -- Magnetic Earring
+            reward = 15963 -- Magnetic Earring
         elseif (option == 3) then
-            reward = 15964; -- Hollow Earring
+            reward = 15964 -- Hollow Earring
         elseif (option == 4) then
-            reward = 15965; -- Ethereal Earring
+            reward = 15965 -- Ethereal Earring
         end
         if (reward ~= 0) then
             if (player:getFreeSlotsCount() >= 1 and player:hasItem(reward) == false) then
@@ -90,4 +89,4 @@ function onEventFinish(player,csid,option)
             player:startEvent(233)
         end
     end		
-end;
+end

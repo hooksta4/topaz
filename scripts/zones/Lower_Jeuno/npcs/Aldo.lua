@@ -25,13 +25,14 @@ function onTrigger(player,npc)
         player:startEvent(104);
     elseif (ZilartMission == tpz.mission.id.zilart.THE_SEALED_SHRINE and ZilartStatus == 1) then
         player:startEvent(111);
-    elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and player:getCharVar('ApocalypseNigh') == 5 then
-        player:startEvent(10057)	
+    elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and player:getCharVar('ApocalypseNigh') == 5 
+    and player:getRank() >= 5 then
+        player:startEvent(10057)
     end
-end;
+end
 
 function onEventUpdate(player,csid,option)
-end;
+end
 
 function onEventFinish(player,csid,option)
 
@@ -44,6 +45,5 @@ function onEventFinish(player,csid,option)
         player:setCharVar("ZilartStatus",1);
     elseif (csid == 10057) then
         player:setCharVar("ApocalypseNigh", 6)
-        player:setCharVar("Apoc_Nigh_Reward", os.date("%j")); -- %M for next minute, %j for next day        
     end
-end;
+end

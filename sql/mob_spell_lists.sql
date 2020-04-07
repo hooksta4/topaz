@@ -2515,25 +2515,25 @@ INSERT INTO `mob_spell_lists` VALUES ('Ghul-I-Beaban_BLM',305,174,1,255); -- fir
 INSERT INTO `mob_spell_lists` VALUES ('Ghul-I-Beaban_BLM',305,179,1,255); -- blizzaga
 INSERT INTO `mob_spell_lists` VALUES ('Saa_Doyi_the_Fervid',306,320,1,255); -- katon_ichi
 INSERT INTO `mob_spell_lists` VALUES ('Frost_Flambeau',307,180,1,255); -- blizzaga_ii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,274,75,255);-- sleepga_ii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,204,75,255);-- Flare
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,206,75,255);-- Freeze
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,208,75,255);-- tornado
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,210,75,255);-- quake
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,212,75,255);-- burst
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,214,75,255);-- flood
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,176,75,255);-- firaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,181,75,255);-- blizzaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,186,75,255);-- aeroaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,191,75,255);-- stonega_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,196,75,255);-- thundaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,201,75,255);-- waterga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche_3',308,362,75,255);-- bindga
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut_2',309,356,76,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut_2',309,357,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut_2',309,359,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut_2',309,360,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut_2',309,366,76,255);
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,274,75,255);-- sleepga_ii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,204,75,255);-- Flare
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,206,75,255);-- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,208,75,255);-- tornado
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,210,75,255);-- quake
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,212,75,255);-- burst
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,214,75,255);-- flood
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,176,75,255);-- firaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,181,75,255);-- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,186,75,255);-- aeroaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,191,75,255);-- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,196,75,255);-- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,201,75,255);-- waterga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',429,362,75,255);-- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',430,356,76,255); -- paralyaga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',430,357,75,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',430,359,75,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',430,360,75,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',430,366,76,255); -- graviga
 
 
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto',308,144,13,255);       -- Fire

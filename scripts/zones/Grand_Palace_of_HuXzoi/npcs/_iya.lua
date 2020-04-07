@@ -3,11 +3,11 @@
 --  NPC: Gate of the Gods
 -- !pos -20 0.1 -283 34
 -----------------------------------
-local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs");
+local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
 -----------------------------------
 
 function onTrade(player,npc,trade)
-end;
+end
 
 function onTrigger(player,npc)
 
@@ -18,20 +18,20 @@ function onTrigger(player,npc)
     else
         player:startEvent(52)
     end
-    return 1;
-end;
+    return 1
+end
 
 function onEventUpdate(player,csid,option)
-end;
+end
 
 function onEventFinish(player,csid,option)
 
     if (csid == 52 and option == 1) then
-        player:setPos(-419.995,0,248.483,191,35); -- To The Garden of RuHmet {R}
-        elseif (csid == 4) then 
+        player:setPos(-419.995, 0, 248.483, 191,35); -- To The Garden of RuHmet 
+        elseif csid == 4 then
             player:setCharVar('ApocalypseNigh',3)
-            player:setPos(-419.995,0,248.483,191,35)
-    elseif (csid == 1) then
+            player:setPos(-419.995, 0, 248.483, 191, 35)
+    elseif csid == 1 then
         if (player:getFreeSlotsCount() == 0) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED,14672)
         else
@@ -43,5 +43,4 @@ function onEventFinish(player,csid,option)
             end
         end
     end
-
-end;
+end

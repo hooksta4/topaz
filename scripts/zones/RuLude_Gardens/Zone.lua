@@ -61,16 +61,18 @@ function onRegionEnter(player, region)
                     player:startEvent(142)
                 elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_ACCEPTED and player:getCharVar('StormsOfFate') == 3 then
                     player:startEvent(143)
-                elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE and 
-                    player:hasKeyItem(tpz.ki.WHISPER_OF_THE_WYRMKING) then
-                    player:startEvent(161)
-                elseif (player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)) and (player:hasKeyItem(tpz.ki.PROMYVION_MEA_SLIVER)) and (player:hasKeyItem(tpz.ki.PROMYVION_DEM_SLIVER)) then
-                    player:startEvent(162)	
-                elseif player:getCharVar("ApocalypseNigh") == 0 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE and 
-                    player:getLocalVar('ANZONE') == 0 then
-                    player:startEvent(123)
                 end
-            end
+			end
+        elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE 
+        and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_COMPLETE 
+        and player:getCharVar("StormsOfFateWait") <= os.time() then
+            player:startEvent 161
+        elseif player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_MEA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_DEM_SLIVER) then 
+            player:startEvent 162 	
+        elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE 
+        and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_COMPLETE 
+        and player:getLocalVar('ANZONE') == 0 and player:getCharVar("ApocNighWait") <= os.time() then
+            player:startEvent 123
         end
     end
 end
@@ -134,19 +136,19 @@ function onEventFinish(player, csid, option)
     elseif csid == 143 then
         player:completeQuest(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE)
         player:setCharVar('StormsOfFate', 0)
-    elseif (csid == 161) then	
-        player:addKeyItem(tpz.ki.NOTE_WRITTEN_BY_ESHANTARL)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.NOTE_WRITTEN_BY_ESHANTARL)
+		player:setCharVar("StormsOfFateWait",getMidnight())
+    elseif csid == 161 then
+		npcUtil.giveKeyItem (player, tpz.ki.NOTE_WRITTEN_BY_ESHANTARL)
         player:addQuest(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED)
-    elseif (csid == 162) then
+    elseif csid == 162 then
         player:completeQuest(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED)
         player:delKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER)
         player:delKeyItem(tpz.ki.PROMYVION_DEM_SLIVER)
         player:delKeyItem(tpz.ki.PROMYVION_MEA_SLIVER)
-        player:setCharVar('ApocalypseNigh',0)
         player:setLocalVar('ANZONE', 1)
-    elseif (csid == 123) then
-        player:addQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)    
-        player:setCharVar('ApocalypseNigh',1)
+        player:setCharVar("ApocNighWait",getMidnight())	
+    elseif csid == 123 then
+        player:addQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)
+        player:setCharVar('ApocalypseNigh', 1)
     end
 end
