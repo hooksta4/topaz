@@ -61,19 +61,19 @@ function onRegionEnter(player, region)
                     player:startEvent(142)
                 elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_ACCEPTED and player:getCharVar('StormsOfFate') == 3 then
                     player:startEvent(143)
+            elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE 
+            and player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE)
+            and player:getCharVar("StormsOfFateWait") <= os.time() then
+                player:startEvent (161)
+            elseif player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_MEA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_DEM_SLIVER) then 
+                player:startEvent (162) 	
+            elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE 
+            and player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) 
+            and player:getLocalVar('ANZONE') == 0 and player:getCharVar("ApocNighWait") <= os.time() then
+                player:startEvent (123)
                 end
-			end
-        elseif player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_AVAILABLE 
-        and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_COMPLETE 
-        and player:getCharVar("StormsOfFateWait") <= os.time() then
-            player:startEvent 161
-        elseif player:hasKeyItem(tpz.ki.PROMYVION_HOLLA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_MEA_SLIVER) and player:hasKeyItem(tpz.ki.PROMYVION_DEM_SLIVER) then 
-            player:startEvent 162 	
-        elseif player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_AVAILABLE 
-        and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED) == QUEST_COMPLETE 
-        and player:getLocalVar('ANZONE') == 0 and player:getCharVar("ApocNighWait") <= os.time() then
-            player:startEvent 123
-        end
+            end
+		end
     end
 end
 
