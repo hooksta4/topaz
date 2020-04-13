@@ -600,8 +600,8 @@ function checkReqs(player, npc, bfid, registrant)
         [ 897] = function() return ( player:hasKeyItem(tpz.ki.WHISPER_OF_THE_WYRMKING)                                                      ) end, -- Quest: The Wyrmking Descends
         [ 928] = function() return ( player:hasCompletedMission(COP, mi.cop.ANCIENT_VOWS) or (cop == mi.cop.ANCIENT_VOWS and copStat >= 2)  ) end, -- Quest: Ouryu Cometh
         [1057] = function() return ( player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) or 
-		                             player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and 
-									 player:getCharVar('ApocalypseNigh') == 4                                                               ) end, -- ApocalypseNigh
+		                           ( player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and 
+                                     player:getCharVar('ApocalypseNigh') == 4)                                                              ) end, -- ApocalypseNigh
         [1290] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.RED_CARD)                          ) end, -- NW Apollyon
         [1291] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.RED_CARD)                          ) end, -- SW Apollyon
         [1292] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.BLACK_CARD)                        ) end, -- NE Apollyon
@@ -617,7 +617,9 @@ function checkReqs(player, npc, bfid, registrant)
         [1305] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                        ) end, -- Central Temenos 3rd Floor
         [1306] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                        ) end, -- Central Temenos 4th Floor
     }
-
+player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) or 
+    (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and 
+    player:getCharVar('ApocalypseNigh') == 4)
     -- determine whether player meets battlefield requirements
     local req = (registrant == true) and registerReqs[bfid] or enterReqs[bfid]
     if not req then

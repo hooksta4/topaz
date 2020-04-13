@@ -40,7 +40,9 @@ function onTrigger(player,npc)
         player:startEvent(177);
     elseif (player:getQuestStatus(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and
         player:getCharVar('ApocalypseNigh') == 6) and
-        player:getCharVar("Apoc_Nigh_Reward") <= os.time() and player:getCharVar('Apoc_Nigh_RewardCS1') == 0 then
+        player:getCharVar("Apoc_Nigh_Reward") <= os.time() and 
+        player:getCharVar('Apoc_Nigh_RewardCS1') == 0 
+        then
         player:startEvent(232, 15962, 15963, 15964, 15965)
     elseif player:getCharVar('Apoc_Nigh_RewardCS1') == 1 then
         player:startEvent(234, 15962, 15963, 15964, 15965)      
@@ -54,7 +56,7 @@ end
 -- 12 parle de kuzotz ? parle de bijoux aussi
 -- 10 parle de zitah
 function onEventUpdate(player,csid,option)
-    if ((csid == 234 ) and option == 1) then
+    if ((csid == 232) and option == 1) or ((csid == 234 ) and option == 1) then
         player:updateEvent(15962, 15963, 15964, 15965)
     end
 end
@@ -83,8 +85,8 @@ function onEventFinish(player,csid,option)
                 player:completeQuest(JEUNO,tpz.quest.id.jeuno.APOCALYPSE_NIGH)
                 player:addMission(COP, tpz.mission.id.cop.THE_LAST_VERSE)
                 player:addMission(ZILART,tpz.mission.id.zilart.THE_LAST_VERSE)
-                player:setCharVar("ApocalypseNigh",0)
-                player:setCharVar("Apoc_Nigh_Reward",0)
+                player:setCharVar("ApocalypseNigh", 0)
+                player:setCharVar("Apoc_Nigh_Reward", 0)
             end
         else
             player:startEvent(233)

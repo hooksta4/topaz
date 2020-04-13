@@ -7,6 +7,7 @@ require("scripts/globals/quests")
 
 function onTrade(player, npc, trade)
 end
+
 function onTrigger(player,npc)
     if
         player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) and not
@@ -16,14 +17,16 @@ function onTrigger(player,npc)
             player:hasItem(15964) or
             player:hasItem(15965)
         )
-        then
+    then
         player:startEvent(5)
     else
         player:messageSpecial(ID.text.QM_TEXT)
     end
 end
+
 function onEventUpdate(player,csid,option,extras)
 end
+
 function onEventFinish(player,csid,option)
     if (csid == 5 and option == 1) then
         player:delQuest(JEUNO,tpz.quest.id.jeuno.SHADOWS_OF_THE_DEPARTED)

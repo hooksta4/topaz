@@ -4,6 +4,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Promyvion-Mea/IDs")
 require("scripts/globals/keyitems");
+require("scripts/globals/quests");
 -----------------------------------
 
 function onTrigger(player, npc)
