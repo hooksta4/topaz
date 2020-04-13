@@ -617,9 +617,6 @@ function checkReqs(player, npc, bfid, registrant)
         [1305] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                        ) end, -- Central Temenos 3rd Floor
         [1306] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                        ) end, -- Central Temenos 4th Floor
     }
-player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) or 
-    (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and 
-    player:getCharVar('ApocalypseNigh') == 4)
     -- determine whether player meets battlefield requirements
     local req = (registrant == true) and registerReqs[bfid] or enterReqs[bfid]
     if not req then
