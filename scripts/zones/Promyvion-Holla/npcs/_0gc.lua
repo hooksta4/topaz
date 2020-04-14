@@ -1,10 +1,10 @@
 -----------------------------------
--- Area: Promyvion holla
--- Memory Flux 4th floor
+-- Area: Promyvion Holla
+--  NPC: Memory Flux 4th floor
 -----------------------------------
 local ID = require("scripts/zones/Promyvion-Holla/IDs")
-require("scripts/globals/keyitems");
-require("scripts/globals/quests");
+require("scripts/globals/keyitems")
+require("scripts/globals/quests")
 -----------------------------------
 
 function onTrigger(player, npc)
@@ -14,7 +14,7 @@ function onTrigger(player, npc)
     then
         npcUtil.giveKeyItem(player, tpz.ki.PROMYVION_HOLLA_SLIVER)
     else
-        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
+        player:messageSpecial(ID.text.BARRIER_WOVEN)
     end
 end
 

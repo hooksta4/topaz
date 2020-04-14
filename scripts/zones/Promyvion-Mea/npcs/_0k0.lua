@@ -1,10 +1,10 @@
 -----------------------------------
 -- Area: Promyvion Mea
--- Memory Flux 4th floor
+--  NPC: Memory Flux 4th floor
 -----------------------------------
 local ID = require("scripts/zones/Promyvion-Mea/IDs")
-require("scripts/globals/keyitems");
-require("scripts/globals/quests");
+require("scripts/globals/keyitems")
+require("scripts/globals/quests")
 -----------------------------------
 
 function onTrigger(player, npc)
@@ -14,11 +14,11 @@ function onTrigger(player, npc)
     then
         npcUtil.giveKeyItem(player, tpz.ki.PROMYVION_MEA_SLIVER)
     else
-        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
+        player:messageSpecial(ID.text.BARRIER_WOVEN)
     end
 end
 
-function onTrade(player, npc, trade)  
+function onTrade(player, npc, trade)
 end
 
 function onEventUpdate(player, csid, option)
