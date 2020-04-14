@@ -171,5 +171,6 @@ function onEventFinish(player, csid, option)
     elseif csid == 123 then
         player:addQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH)
         player:setCharVar('ApocalypseNigh', 1)
+        player:setCharVar("ApocNighWait", 0)
     end
 end
