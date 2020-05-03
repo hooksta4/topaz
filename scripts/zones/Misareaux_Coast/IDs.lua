@@ -37,7 +37,7 @@ zones[tpz.zone.MISAREAUX_COAST] =
         BOGGELMANN       = 16879897,
         GRATION          = 16879899,
         ZIPHIUS          = 16879900,
-        ZIPHIUS_QM_BASE  = 16879919,
+
     },
     npc =
     {
@@ -50,6 +50,7 @@ zones[tpz.zone.MISAREAUX_COAST] =
             16879976,
             16879977,
         },
+        ZIPHIUS_QM_BASE  = 16879919,
     },
 }
 
