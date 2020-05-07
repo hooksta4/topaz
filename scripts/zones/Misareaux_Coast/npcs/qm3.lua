@@ -22,13 +22,13 @@ end
 function onTrigger(player,npc)
     local baited = npc:getLocalVar("[Ziphius]Bait Trap")
 
-    if (VanadielHour() >= 22 or VanadielHour() < 4) then
+    if VanadielHour() >= 22 or VanadielHour() < 4 then
         if (baited == 0) then
             player:messageSpecial(ID.text.APPEARS_TO_BE_TRAP)
         else
             player:messageSpecial(ID.text.NOTHING_HERE_YET)
         end
-    elseif (VanadielHour() >= 4 and VanadielHour() < 7) then
+    elseif VanadielHour() >= 4 and VanadielHour() < 7 then
         if (baited == 1) then
             if (math.random(1,1000) <= 176) then
                 SpawnMob(ID.mob.ZIPHIUS):updateClaim(player)

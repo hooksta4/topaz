@@ -29,16 +29,16 @@ end
 
 function onGameHour(zone)
     local ZIPHIUS_QM_BASE  = 16879919
-    if (VanadielHour() == 22) then  -- Spawn traps for Ziphius
+    if VanadielHour() == 22 then  -- Spawn traps for Ziphius
         for i = ZIPHIUS_QM_BASE, ZIPHIUS_QM_BASE+5, 1 do
             GetNPCByID(i):setStatus(tpz.status.NORMAL)
         end
-    elseif (VanadielHour() == 7) then  -- Despawn traps for Ziphius
+    elseif VanadielHour() == 7 then  -- Despawn traps for Ziphius
         for i = ZIPHIUS_QM_BASE, ZIPHIUS_QM_BASE+5, 1 do
             GetNPCByID(i):setStatus(tpz.status.DISAPPEAR)
             GetNPCByID(i):setLocalVar("[Ziphius]Bait Trap", 0)
         end
-    elseif (VanadielHour() == 4) then  -- Despawn non-baited traps
+    elseif VanadielHour() == 4 then  -- Despawn non-baited traps
         for i = ZIPHIUS_QM_BASE, ZIPHIUS_QM_BASE+5, 1 do
             if (GetNPCByID(i):getLocalVar("[Ziphius]Bait Trap") == 0) then
                 GetNPCByID(i):setStatus(tpz.status.DISAPPEAR)
