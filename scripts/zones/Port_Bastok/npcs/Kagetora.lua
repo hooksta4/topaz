@@ -45,7 +45,7 @@ function onEventFinish(player,csid,option)
     elseif (csid == 261) then
         player:setCharVar("twentyInPirateYearsCS",2)
     elseif (csid == 296) then
-        player:setCharVar("FadedPromises",2)
+        player:setCharVar("FadedPromises",3)
     end
 
 end

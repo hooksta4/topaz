@@ -38,7 +38,7 @@ function onTrigger(player,npc)
         player:startEvent(748) -- Start Quest "True Strength"
     elseif (player:getCharVar("FadedPromises") == 1) then
         player:startEvent(803)
-    elseif (player:getCharVar("FadedPromises") == 2) then
+    elseif (player:getCharVar("FadedPromises") == 3) then
         player:startEvent(804)
     else
         player:startEvent(701) -- Standard dialog
